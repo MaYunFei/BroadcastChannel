@@ -1,7 +1,7 @@
 import type { CheerioAPI } from 'cheerio'
 import type { IndexedStaticProxyOptions, MessageSelection } from '../types'
 import { escapeHtmlAttribute, getProxiedUrl, normalizeUrlAttribute } from '../url'
-import { getImageLoading, STYLE_URL_REGEX } from './utils'
+import { getImageLoading, getVideoPreload, STYLE_URL_REGEX } from './utils'
 
 export function getLinkPreview($: CheerioAPI, message: MessageSelection, options: IndexedStaticProxyOptions): string {
   const { staticProxy = '', index = 0 } = options
@@ -25,6 +25,19 @@ export function getLinkPreview($: CheerioAPI, message: MessageSelection, options
   image.replaceWith(
     `<img class="link_preview_image" alt="${safeTitle}" src="${imageSrc}" width="1200" height="630" loading="${loading}" />`,
   )
+
+  const video = message.find('.link_preview_video_player video')
+  const videoSrc = video.attr('src')
+
+  if (videoSrc) {
+    video.attr('src', getProxiedUrl(staticProxy, videoSrc))
+  }
+
+  video
+    .attr('controls', '')
+    .attr('preload', getVideoPreload(index))
+    .attr('playsinline', '')
+    .attr('webkit-playsinline', '')
 
   return $.html(link)
 }

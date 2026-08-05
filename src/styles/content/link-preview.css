@@ -23,6 +23,44 @@
       }
     }
 
+    .tgme_widget_message_link_preview:has(.link_preview_video_player) {
+      @apply relative flex border-0 bg-transparent p-0;
+
+      .link_preview_site_name {
+        @apply absolute z-10 rounded-panel bg-[rgba(0,0,0,0.66)] px-1 text-sm leading-normal text-white truncate;
+        bottom: var(--box-margin);
+        left: var(--box-margin);
+        max-width: calc(100% - 28px);
+      }
+
+      .link_preview_title,
+      .link_preview_description {
+        @apply hidden;
+      }
+    }
+
+    .link_preview_video_player {
+      @apply relative;
+
+      .message_video_play {
+        @apply hidden;
+      }
+
+      .message_video_duration {
+        @apply absolute right-1 bottom-1 rounded bg-[rgba(0,0,0,0.66)] px-1 text-xs leading-normal text-white;
+      }
+    }
+
+    .link_preview_video_wrap {
+      padding-top: 0 !important;
+      @apply aspect-video w-full;
+
+      video.link_preview_video {
+        @apply block h-full w-full;
+        object-fit: cover;
+      }
+    }
+
     .tgme_widget_message_link_preview:has(.link_preview_image) {
       @apply relative flex border-0 bg-transparent p-0;
 

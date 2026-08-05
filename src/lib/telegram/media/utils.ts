@@ -14,6 +14,10 @@ export function getImageLoading(index: number): 'eager' | 'lazy' {
   return index > 15 ? 'lazy' : 'eager'
 }
 
+export function getVideoPreload(index: number): 'metadata' | 'auto' {
+  return index > 15 ? 'metadata' : 'auto'
+}
+
 export function getMaybeProxiedUrl(staticProxy: string, url: string): string {
   return isProxyableUrl(url) ? getProxiedUrl(staticProxy, url) : normalizeUrlAttribute(url)
 }
