@@ -23,7 +23,7 @@
       }
     }
 
-    .tgme_widget_message_link_preview:has(.link_preview_video_player) {
+    .tgme_widget_message_link_preview.has-video-preview {
       @apply block rounded-panel border-l-[3px] border-accent bg-surface p-1.5 pl-2.5;
 
       .link_preview_site_name {
@@ -42,7 +42,7 @@
     }
 
     .link_preview_video_player {
-      @apply relative;
+      @apply relative mt-1.5;
 
       .link_preview_video_thumb,
       .message_video_play {

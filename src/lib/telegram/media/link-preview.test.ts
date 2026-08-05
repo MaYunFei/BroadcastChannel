@@ -27,12 +27,19 @@ describe('link preview renderer', () => {
     `, { staticProxy: '/static/' })
 
     const video = rendered('video')
+    const card = rendered('a.tgme_widget_message_link_preview')
 
     expect(video).toHaveLength(1)
     expect(video.attr('src')).toBe('/static/https://cdn4.telesco.pe/file/video.mp4?token=abc')
     expect(video.attr('controls')).toBeDefined()
     expect(video.attr('playsinline')).toBeDefined()
     expect(video.attr('preload')).toBe('auto')
+
+    // The player is moved out of the wrapping link so clicking the video
+    // plays it instead of navigating away.
+    expect(card.hasClass('has-video-preview')).toBe(true)
+    expect(rendered('a.tgme_widget_message_link_preview video')).toHaveLength(0)
+    expect(rendered('a.tgme_widget_message_link_preview + .link_preview_video_player')).toHaveLength(1)
   })
 
   it('uses metadata preload for late posts', () => {
