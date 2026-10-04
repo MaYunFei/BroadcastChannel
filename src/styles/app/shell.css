@@ -129,6 +129,35 @@
     text-underline-offset: 0.22em;
   }
 
+  .nav-filter-item {
+    display: inline-flex;
+    align-items: center;
+    margin-inline-start: 1rem;
+  }
+
+  .nav-filter-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-panel);
+    font-size: 0.85em;
+    color: var(--muted-color);
+    cursor: pointer;
+    user-select: none;
+    transition: color 150ms ease;
+  }
+
+  .nav-filter-label:hover {
+    color: var(--text-color);
+  }
+
+  .nav-filter-checkbox {
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--accent-color);
+  }
+
   .desktop-search,
   .mobile-search form {
     width: min(14rem, 100%);

@@ -75,3 +75,7 @@ export function getReactionLabel(reaction: Reaction): string {
 
   return `${reactionName}, count ${reaction.count}`
 }
+
+export function isTwitterForward(tags?: string[]): boolean {
+  return tags?.some(tag => tag.toLowerCase() === 'twitter') ?? false
+}

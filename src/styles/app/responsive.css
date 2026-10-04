@@ -71,6 +71,7 @@
     }
 
     .site-navigation > ul a,
+    .nav-filter-label,
     .mobile-search summary,
     .search-submit,
     .pagination a,
@@ -80,6 +81,7 @@
     }
 
     .site-navigation > ul a::after,
+    .nav-filter-label::after,
     .mobile-search summary::after,
     .search-submit::after,
     #back-to-top::after,

@@ -57,6 +57,14 @@ const skipLinkText = 'Skip to main content'
       {...seoParams}
     />
     <Fragment set:html={HEADER_INJECT} />
+    <script is:inline>
+      ;(() => {
+        const saved = localStorage.getItem('filter_twitter_forward')
+        if (saved === null || saved === 'true') {
+          document.documentElement.classList.add('filter-forwards')
+        }
+      })()
+    </script>
   </head>
 
   <body class:list={[pageType, pageClass]}>
@@ -82,5 +90,36 @@ const skipLinkText = 'Skip to main content'
     <SiteFooter />
     <BackToTop />
     <Fragment set:html={FOOTER_INJECT} />
+    <script is:inline>
+      ;(() => {
+        function syncToggle() {
+          const toggle = document.getElementById('filter-forward-toggle')
+          const saved = localStorage.getItem('filter_twitter_forward')
+          const shouldFilter = saved === null || saved === 'true'
+
+          document.documentElement.classList.toggle('filter-forwards', shouldFilter)
+
+          if (toggle) {
+            toggle.checked = shouldFilter
+            if (!toggle.dataset.bound) {
+              toggle.dataset.bound = 'true'
+              toggle.addEventListener('change', () => {
+                const isChecked = toggle.checked
+                document.documentElement.classList.toggle('filter-forwards', isChecked)
+                localStorage.setItem('filter_twitter_forward', String(isChecked))
+              })
+            }
+          }
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', syncToggle)
+        }
+        if (document.readyState !== 'loading') {
+          syncToggle()
+        }
+        document.addEventListener('astro:page-load', syncToggle)
+      })()
+    </script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { formatPostTime, paidReactionClass } from './post-ui'
+import { formatPostTime, isTwitterForward, paidReactionClass } from './post-ui'
 
 describe('post UI helpers', () => {
   beforeEach(() => {
@@ -25,5 +25,14 @@ describe('post UI helpers', () => {
 
   it('exposes a stable semantic class for paid reactions', () => {
     expect(paidReactionClass).toBe('reaction-paid')
+  })
+
+  it('detects twitter forward tags case-insensitively', () => {
+    expect(isTwitterForward(['Twitter'])).toBe(true)
+    expect(isTwitterForward(['twitter'])).toBe(true)
+    expect(isTwitterForward(['TWITTER', 'news'])).toBe(true)
+    expect(isTwitterForward(['other', 'tech'])).toBe(false)
+    expect(isTwitterForward([])).toBe(false)
+    expect(isTwitterForward(undefined)).toBe(false)
   })
 })

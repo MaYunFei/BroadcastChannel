@@ -9,6 +9,29 @@
     list-style: none;
   }
 
+  html.filter-forwards .posts-feed > li[data-forward='twitter'] {
+    display: none;
+  }
+
+  .all-posts-filtered-notice {
+    display: none;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    color: var(--muted-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .all-posts-filtered-notice p {
+    margin: 0;
+    font-size: 0.9em;
+  }
+
+  html.filter-forwards
+    .posts-feed:not(:has(> li:not([data-forward='twitter']):not(.all-posts-filtered-notice)))
+    .all-posts-filtered-notice {
+    display: block;
+  }
+
   .post-entry {
     margin-bottom: 2.75rem;
     padding-bottom: 2.75rem;

@@ -71,6 +71,12 @@ const primaryNavItems = [
         </li>
       ))
     }
+    <li class="nav-filter-item">
+      <label for="filter-forward-toggle" class="nav-filter-label" title="过滤带有 #Twitter 标签的转发内容">
+        <input type="checkbox" id="filter-forward-toggle" class="nav-filter-checkbox" checked />
+        <span>过滤转发</span>
+      </label>
+    </li>
   </ul>
   <SearchForm action={searchAction} googleSearchSite={googleSearchSite} />
 </nav>

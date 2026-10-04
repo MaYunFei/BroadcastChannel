@@ -132,6 +132,29 @@ hr {
   text-decoration: none;
 }
 
+.site-navigation .nav-filter-item {
+  margin-inline-start: 1rem;
+}
+
+.site-navigation .nav-filter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-panel);
+  color: var(--muted-color);
+  transition:
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    color 150ms ease;
+}
+
+.site-navigation .nav-filter-label:hover {
+  background: color-mix(in srgb, var(--surface-color) 78%, transparent);
+  box-shadow: var(--shadow-soft);
+  color: var(--heading-color);
+}
+
 .desktop-search,
 .mobile-search form {
   border-color: var(--border-color);
