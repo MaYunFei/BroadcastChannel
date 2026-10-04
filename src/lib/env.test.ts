@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import {
+  cleanHtmlInject,
   getBooleanEnv,
   getEnv,
   getStaticProxy,
@@ -155,5 +156,22 @@ describe('env parsing helpers', () => {
 
   it('parses comma-delimited lists and ignores empty entries', () => {
     expect(parseCsvList('alpha, , beta,, gamma ')).toEqual(['alpha', 'beta', 'gamma'])
+  })
+
+  it('cleans HTML injection snippets and strips accidental wrapping quotes', () => {
+    expect(cleanHtmlInject(undefined)).toBeUndefined()
+    expect(cleanHtmlInject('')).toBeUndefined()
+    expect(cleanHtmlInject('   ')).toBeUndefined()
+    expect(cleanHtmlInject('\'\'')).toBeUndefined()
+    expect(cleanHtmlInject('""')).toBeUndefined()
+    expect(cleanHtmlInject('\'<link rel="stylesheet" href="/themes/aria.css">\'')).toBe(
+      '<link rel="stylesheet" href="/themes/aria.css">',
+    )
+    expect(cleanHtmlInject('"<link rel=\"stylesheet\" href=\"/themes/aria.css\">"')).toBe(
+      '<link rel="stylesheet" href="/themes/aria.css">',
+    )
+    expect(cleanHtmlInject('<link rel="stylesheet" href="/themes/aria.css">')).toBe(
+      '<link rel="stylesheet" href="/themes/aria.css">',
+    )
   })
 })

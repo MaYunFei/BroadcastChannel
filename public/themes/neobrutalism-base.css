@@ -678,6 +678,8 @@ hr {
   }
 
   .site-header {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
     gap: 0.75rem;
     padding-top: 1rem;
   }
@@ -688,10 +690,30 @@ hr {
   }
 
   .site-header > .title > h1 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+  }
+
+  .social-links {
+    grid-column: auto;
+    justify-self: end;
+    align-self: center;
+    gap: 0.35rem;
   }
 
   .social-links a,
+  .social-links a:visited {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .channel-description {
+    grid-column: 1 / -1;
+  }
+
+  .site-navigation {
+    grid-column: 1 / -1;
+  }
+
   .site-navigation a,
   .mobile-search summary,
   .search-submit {

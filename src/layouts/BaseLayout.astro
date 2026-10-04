@@ -5,7 +5,7 @@ import BackToTop from '../components/BackToTop.astro'
 import SiteHeader from '../components/SiteHeader.astro'
 import SiteNavigation from '../components/SiteNavigation.astro'
 import SiteFooter from '../components/SiteFooter.astro'
-import { getEnv, parseDelimitedItems } from '../lib/env'
+import { cleanHtmlInject, getEnv, parseDelimitedItems } from '../lib/env'
 import { getPageSeo } from '../lib/seo'
 import type { ChannelInfo, SeoMeta } from '../types'
 
@@ -31,8 +31,8 @@ const { currentPathname, hasCustomTitle, linksPathname, seoParams, siteRootPathn
 const GOOGLE_SEARCH_SITE = getEnv(import.meta.env, 'GOOGLE_SEARCH_SITE')
 const searchAction = GOOGLE_SEARCH_SITE ? 'https://www.google.com/search' : `${SITE_URL}search/result`
 
-const HEADER_INJECT = getEnv(import.meta.env, 'HEADER_INJECT')
-const FOOTER_INJECT = getEnv(import.meta.env, 'FOOTER_INJECT')
+const HEADER_INJECT = cleanHtmlInject(getEnv(import.meta.env, 'HEADER_INJECT'))
+const FOOTER_INJECT = cleanHtmlInject(getEnv(import.meta.env, 'FOOTER_INJECT'))
 const TAGS = getEnv(import.meta.env, 'TAGS')
 const LINKS = getEnv(import.meta.env, 'LINKS')
 const navs = parseDelimitedItems(getEnv(import.meta.env, 'NAVS'))

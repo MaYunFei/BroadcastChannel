@@ -15,6 +15,25 @@ export function getEnv(env: Env | undefined, name: string): string | undefined {
   return getProcessEnv(name) ?? env?.[name]
 }
 
+/**
+ * Strips accidental wrapping quotes from injected HTML snippets and ignores empty quotes.
+ */
+export function cleanHtmlInject(value: string | undefined): string | undefined {
+  if (!value)
+    return undefined
+
+  const trimmed = value.trim()
+  if (trimmed.length === 0 || trimmed === '\'\'' || trimmed === '""')
+    return undefined
+
+  if ((trimmed.startsWith('\'') && trimmed.endsWith('\'')) || (trimmed.startsWith('"') && trimmed.endsWith('"'))) {
+    const unquoted = trimmed.slice(1, -1).trim()
+    return unquoted.length > 0 ? unquoted : undefined
+  }
+
+  return trimmed
+}
+
 export function getStaticProxy(env: Env): string {
   return getEnv(env, 'STATIC_PROXY') ?? '/static/'
 }
