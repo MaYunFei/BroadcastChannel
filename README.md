@@ -64,6 +64,7 @@ For detailed tutorials, see [Deploy your Astro site](https://docs.astro.build/en
 - Optional theme visual inspiration: [Zed's Agentic Engineering page](https://zed.dev/agentic-engineering), independently implemented with no official affiliation with Zed Industries, Inc.
 - Original optional theme: Polar, a project-owned design with no external visual upstream
 - Optional theme visual inspiration: [Neobrutalism Components](https://github.com/ekmas/neobrutalism-components) by Ekmas, independently implemented with no official affiliation
+- Optional theme visual inspiration: [Kami](https://github.com/tw93/kami) by Tw93, independently implemented with no official affiliation
 
 ## 🏗️ Deployment
 
@@ -186,12 +187,13 @@ Base is always loaded. Leave `HEADER_INJECT` empty to use Base, or load **exactl
 | Neobrutalism Green  | `/themes/neobrutalism-green.css`  |
 | Neobrutalism Purple | `/themes/neobrutalism-purple.css` |
 | Neobrutalism Orange | `/themes/neobrutalism-orange.css` |
+| Kami                | `/themes/kami.css`                |
 
 ```env
 HEADER_INJECT='<link rel="stylesheet" href="/themes/neobrutalism.css">'
 ```
 
-HN News, TG Channel, ZAE, Polar, and Neobrutalism are fixed-light themes. Do not load `/themes/terminal-base.css` or `/themes/neobrutalism-base.css` directly; there is no `/themes/terminal.css`.
+HN News, TG Channel, ZAE, Polar, Neobrutalism, and Kami are fixed-light themes. Do not load `/themes/terminal-base.css` or `/themes/neobrutalism-base.css` directly; there is no `/themes/terminal.css`.
 
 Full configuration, light/dark behavior, platform dashboard values, custom CSS, and security notes: **[THEMES.md](./THEMES.md)**. Theme credits: **[NOTICE.md](./NOTICE.md)**.
 

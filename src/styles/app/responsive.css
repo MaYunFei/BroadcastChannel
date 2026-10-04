@@ -1,8 +1,8 @@
 @layer components {
   @media (max-width: 37.5rem) {
     .site-header {
-      grid-template-columns: auto minmax(0, 1fr);
-      align-items: flex-start;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
     }
 
     .site-header > .title > h1 {
@@ -15,8 +15,9 @@
     }
 
     .social-links {
-      grid-column: 1 / -1;
-      justify-self: start;
+      grid-column: auto;
+      justify-self: end;
+      align-self: center;
     }
 
     .site-navigation {

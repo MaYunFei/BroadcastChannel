@@ -28,6 +28,7 @@ Use one of these exact `.env` configurations:
 | Neobrutalism Green  | Fixed light, lime green accent      | `HEADER_INJECT='<link rel="stylesheet" href="/themes/neobrutalism-green.css">'`  |
 | Neobrutalism Purple | Fixed light, vivid purple accent    | `HEADER_INJECT='<link rel="stylesheet" href="/themes/neobrutalism-purple.css">'` |
 | Neobrutalism Orange | Fixed light, vibrant orange accent  | `HEADER_INJECT='<link rel="stylesheet" href="/themes/neobrutalism-orange.css">'` |
+| Kami                | Fixed light, warm parchment paper   | `HEADER_INJECT='<link rel="stylesheet" href="/themes/kami.css">'`                |
 
 Aria uses a neutral, system-sans presentation with light and dark palettes, a dashed square-line grid wash, and larger media radii. Sepia uses a fixed light palette and system-sans typography. All four Terminal variants use the same square, fixed-dark, Fira Code–first monospace design (loaded from Google Fonts when available); only their background, surface, accent, muted, border, and visited-link palettes differ.
 
@@ -37,7 +38,9 @@ Polar is an original BroadcastChannel theme with a fixed-light, 760px single-col
 
 The **Neobrutalism** family is fixed-light, high-contrast, and tactile, featuring bold solid borders, zero-blur offset drop shadows, and physical press micro-interactions. It provides Yellow, Blue, Pink, Green, Purple, and Orange entry files; `/themes/neobrutalism.css` defaults to the classic Bright Yellow palette. `/themes/neobrutalism-base.css` is imported internally by the palette entry files.
 
-All overrides are independently implemented for BroadcastChannel. Polar is an original project-owned design; Neobrutalism is visually inspired by neobrutalism-components; HN News, TG Channel, and ZAE are visual interpretations, not source adaptations or official themes. No source code, CSS, fonts, or assets from Hacker News, Telegram, or Zed are bundled. See [NOTICE.md](./NOTICE.md) for provenance and non-affiliation details.
+**Kami** is a fixed-light reading theme inspired by tw93/kami ("Good content deserves good paper"). It creates a book and paper reading experience with a warm parchment canvas (`#f5f4ed`), ink-blue accents (`#1b365d`), editorial serif typography across Chinese and Western text, warm olive and stone neutrals, and clean hairline borders.
+
+All overrides are independently implemented for BroadcastChannel. Polar is an original project-owned design; Neobrutalism is visually inspired by neobrutalism-components; Kami is visually inspired by tw93/kami; HN News, TG Channel, and ZAE are visual interpretations, not source adaptations or official themes. No source code, CSS, fonts, or assets from Hacker News, Telegram, Zed, or Kami are bundled. See [NOTICE.md](./NOTICE.md) for provenance and non-affiliation details.
 
 `/themes/terminal-base.css` is an internal shared stylesheet imported by the four Terminal entry files. Do not load it directly: it has no standalone palette. There is no `/themes/terminal.css` entry point.
 
@@ -73,6 +76,10 @@ HEADER_INJECT='<link rel="stylesheet" href="/themes/zae.css">'
 
 ```env
 HEADER_INJECT='<link rel="stylesheet" href="/themes/polar.css">'
+```
+
+```env
+HEADER_INJECT='<link rel="stylesheet" href="/themes/kami.css">'
 ```
 
 ## Custom CSS

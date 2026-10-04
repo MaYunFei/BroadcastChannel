@@ -63,6 +63,7 @@ Cloudflare Pages SSR 在当前 Astro 6 + @astrojs/cloudflare v13 下不受支持
 - 可选主题视觉灵感：[Telegram 公开频道预览](https://t.me/s/)（独立实现，与 Telegram Messenger Inc. 无官方关系）
 - 可选主题视觉灵感：[Zed 的 Agentic Engineering 页面](https://zed.dev/agentic-engineering)（独立实现，与 Zed Industries, Inc. 无官方关系）
 - 原创可选主题：Polar（项目自有设计，无外部视觉上游）
+- 可选主题视觉灵感：[Kami](https://github.com/tw93/kami)（由 Tw93 设计，独立实现，与其无官方关系）
 
 ## 🏗️ 部署
 
@@ -178,12 +179,13 @@ TARGET_WHITELIST=a.com,b.com
 | TG Channel       | `/themes/tg-channel.css`       |
 | ZAE              | `/themes/zae.css`              |
 | Polar            | `/themes/polar.css`            |
+| Kami             | `/themes/kami.css`             |
 
 ```env
 HEADER_INJECT='<link rel="stylesheet" href="/themes/polar.css">'
 ```
 
-HN News、TG Channel、ZAE 和 Polar 是固定浅色主题。不要直接加载 `/themes/terminal-base.css`；项目不存在 `/themes/terminal.css`。
+HN News、TG Channel、ZAE、Polar 和 Kami 是固定浅色主题。不要直接加载 `/themes/terminal-base.css`；项目不存在 `/themes/terminal.css`。
 
 完整配置、明暗模式、平台控制台写法、自定义 CSS 与安全边界见 **[THEMES.md](./THEMES.md)**。主题归属见 **[NOTICE.md](./NOTICE.md)**。
 

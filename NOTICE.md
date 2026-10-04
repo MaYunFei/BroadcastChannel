@@ -91,4 +91,13 @@ The optional `public/themes/neobrutalism.css`, `neobrutalism-yellow.css`, `neobr
 - License: [MIT](https://github.com/ekmas/neobrutalism-components/blob/main/LICENSE)
 - Nature: Visual inspiration; independent implementation, not adapted source
 
-These are attribution and compatibility notices only. They do not imply endorsement by or official affiliation with Bear Blog, Planetable, hugo-theme-terminal, Aria Template, Y Combinator or Hacker News, Telegram Messenger Inc., Zed Industries, Inc., or Ekmas, and they do not change the licensing of BroadcastChannel under the root `LICENSE`.
+## Kami theme
+
+The optional `public/themes/kami.css` theme is visually inspired by [Kami](https://github.com/tw93/kami) created by Tw93. It is independently implemented for BroadcastChannel's DOM; upstream source files are not bundled in this repository.
+
+- Project: https://github.com/tw93/kami
+- Creator: Tw93 ([@tw93](https://github.com/tw93))
+- License: [MIT](https://github.com/tw93/kami/blob/main/LICENSE)
+- Nature: Visual inspiration; independent implementation, not adapted source
+
+These are attribution and compatibility notices only. They do not imply endorsement by or official affiliation with Bear Blog, Planetable, hugo-theme-terminal, Aria Template, Y Combinator or Hacker News, Telegram Messenger Inc., Zed Industries, Inc., Ekmas, or Tw93, and they do not change the licensing of BroadcastChannel under the root `LICENSE`.

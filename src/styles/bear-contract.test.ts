@@ -16,6 +16,7 @@ const polar = readFileSync(new URL('../../public/themes/polar.css', import.meta.
 const neobrutalismBase = readFileSync(new URL('../../public/themes/neobrutalism-base.css', import.meta.url), 'utf8')
 const neobrutalismYellow = readFileSync(new URL('../../public/themes/neobrutalism-yellow.css', import.meta.url), 'utf8')
 const neobrutalism = readFileSync(new URL('../../public/themes/neobrutalism.css', import.meta.url), 'utf8')
+const kami = readFileSync(new URL('../../public/themes/kami.css', import.meta.url), 'utf8')
 const postEntry = readFileSync(new URL('../components/PostEntry.astro', import.meta.url), 'utf8')
 const postsPage = readFileSync(new URL('../components/PostsPage.astro', import.meta.url), 'utf8')
 
@@ -189,6 +190,25 @@ describe('bear CSS contract', () => {
 
     expect(neobrutalismBase).toContain('--body-padding-inline: 1.25rem;')
     expect(css).toContain('body { padding: 0 var(--body-padding-inline) 2rem;')
+    expect(css).toContain('@media (max-width: 37.5rem) { :root { --body-padding-inline: 1rem; }')
+  })
+
+  it('keeps Kami on the fixed-light Bear and public variable contracts', () => {
+    expect(kami).toMatch(/color-scheme:\s*light;/)
+    expect(kami).not.toMatch(/color-scheme:\s*light\s+dark;/)
+
+    for (const variable of [...bearVariables, ...publicVariables]) {
+      expect(kami).toContain(`${variable}:`)
+    }
+
+    expect(kami).toContain('--width: 780px;')
+  })
+
+  it('keeps Kami body padding aligned across desktop and mobile', () => {
+    const css = compact(kami)
+
+    expect(kami).toContain('--body-padding-inline: 1.25rem;')
+    expect(css).toContain('body { padding: 0 var(--body-padding-inline) 1.5rem;')
     expect(css).toContain('@media (max-width: 37.5rem) { :root { --body-padding-inline: 1rem; }')
   })
 
